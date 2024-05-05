@@ -1,11 +1,23 @@
+import { ApiProperty } from '@nestjs/swagger';
+
 export class CreateEmployeeDto {
-  readonly name: string;
-  readonly salary: number;
-  readonly age: number;
+  @ApiProperty()
+  name: string;
+
+  @ApiProperty()
+  salary: number;
+
+  @ApiProperty()
+  age: number;
 }
 
 export class UpdateEmployeeDto {
-  readonly name?: string;
-  readonly salary?: number;
-  readonly age?: number;
+  @ApiProperty()
+  name?: string;
+
+  @ApiProperty()
+  salary?: number;
+
+  @ApiProperty()
+  age?: number;
 }

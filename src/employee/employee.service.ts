@@ -7,7 +7,9 @@ export class EmployeeService {
   private readonly collection;
 
   constructor() {
-    this.collection = new MongoClient('mongodb://localhost:27017/').db('hrms').collection('employees');
+    this.collection = new MongoClient('mongodb://localhost:27017/')
+      .db('hrms')
+      .collection('employees');
   }
 
   async findAll() {
@@ -25,7 +27,7 @@ export class EmployeeService {
     const result = await this.collection.findOneAndUpdate(
       { _id: objId },
       { $set: updateEmployeeDto },
-      { returnDocument: 'after' }
+      { returnDocument: 'after' },
     );
     if (!result.value) {
       throw new NotFoundException('Employee not found');
